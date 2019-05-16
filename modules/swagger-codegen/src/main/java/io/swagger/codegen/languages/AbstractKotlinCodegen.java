@@ -29,26 +29,26 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
 
-    protected CodegenConstants.ENUM_PROPERTY_NAMING_TYPE enumPropertyNaming = CodegenConstants.ENUM_PROPERTY_NAMING_TYPE.camelCase;
+    protected CodegenConstants.ENUM_PROPERTY_NAMING_TYPE enumPropertyNaming = CodegenConstants.ENUM_PROPERTY_NAMING_TYPE.UPPERCASE;
 
     public AbstractKotlinCodegen() {
         super();
         supportsInheritance = true;
 
         languageSpecificPrimitives = new HashSet<String>(Arrays.asList(
-                "kotlin.Byte",
-                "kotlin.Short",
-                "kotlin.Int",
-                "kotlin.Long",
-                "kotlin.Float",
-                "kotlin.Double",
-                "kotlin.Boolean",
-                "kotlin.Char",
-                "kotlin.String",
-                "kotlin.Array",
-                "kotlin.collections.List",
-                "kotlin.collections.Map",
-                "kotlin.collections.Set"
+                "Byte",
+                "Short",
+                "Int",
+                "Long",
+                "Float",
+                "Double",
+                "Boolean",
+                "Char",
+                "String",
+                "Array",
+                "List",
+                "Map",
+                "Set"
         ));
 
         // this includes hard reserved words defined by https://github.com/JetBrains/kotlin/blob/master/core/descriptors/src/org/jetbrains/kotlin/renderer/KeywordStringsGenerated.java
@@ -120,36 +120,36 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         ));
 
         defaultIncludes = new HashSet<String>(Arrays.asList(
-                "kotlin.Byte",
-                "kotlin.Short",
-                "kotlin.Int",
-                "kotlin.Long",
-                "kotlin.Float",
-                "kotlin.Double",
-                "kotlin.Boolean",
-                "kotlin.Char",
-                "kotlin.Array",
-                "kotlin.collections.List",
-                "kotlin.collections.Set",
-                "kotlin.collections.Map"
+                "Byte",
+                "Short",
+                "Int",
+                "Long",
+                "Float",
+                "Double",
+                "Boolean",
+                "Char",
+                "Array",
+                "List",
+                "Set",
+                "Map"
         ));
 
         typeMapping = new HashMap<String, String>();
-        typeMapping.put("string", "kotlin.String");
-        typeMapping.put("boolean", "kotlin.Boolean");
-        typeMapping.put("integer", "kotlin.Int");
-        typeMapping.put("float", "kotlin.Float");
-        typeMapping.put("long", "kotlin.Long");
-        typeMapping.put("double", "kotlin.Double");
+        typeMapping.put("string", "String");
+        typeMapping.put("boolean", "Boolean");
+        typeMapping.put("integer", "Int");
+        typeMapping.put("float", "Float");
+        typeMapping.put("long", "Long");
+        typeMapping.put("double", "Double");
         typeMapping.put("number", "java.math.BigDecimal");
         typeMapping.put("date-time", "java.time.LocalDateTime");
         typeMapping.put("date", "java.time.LocalDateTime");
         typeMapping.put("file", "java.io.File");
-        typeMapping.put("array", "kotlin.Array");
-        typeMapping.put("list", "kotlin.Array");
-        typeMapping.put("map", "kotlin.collections.Map");
-        typeMapping.put("object", "kotlin.Any");
-        typeMapping.put("binary", "kotlin.Array<kotlin.Byte>");
+        typeMapping.put("array", "List");
+        typeMapping.put("list", "List");
+        typeMapping.put("map", "Map");
+        typeMapping.put("object", "Any");
+        typeMapping.put("binary", "Array<Byte>");
         typeMapping.put("Date", "java.time.LocalDateTime");
         typeMapping.put("DateTime", "java.time.LocalDateTime");
 
